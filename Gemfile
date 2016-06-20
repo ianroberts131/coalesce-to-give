@@ -35,6 +35,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-inline'
   gem 'rb-readline'
+  gem 'capybara'
 end
 
 
