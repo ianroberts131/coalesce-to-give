@@ -17,6 +17,12 @@ Bundler.require(*Rails.groups)
 
 module Ctg
   class Application < Rails::Application
+    # See all options at http://api.rubyonrails.org/classes/Rails/Generators.html
+    config.generators do |g|
+      g.assets = false
+      g.helper = false
+    end
+    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
