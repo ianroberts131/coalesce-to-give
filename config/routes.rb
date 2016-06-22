@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   
-  root 'welcome#home'
-  
   devise_for :users
   
-  authenticated :user do
-    root to: 'welcome#home'
-  end
+  # authenticated :user do
+  #   root to: 'welcome#home'
+  # end
+  
+  root 'welcome#home'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
