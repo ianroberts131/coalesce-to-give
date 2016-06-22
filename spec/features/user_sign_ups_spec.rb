@@ -11,7 +11,7 @@ RSpec.feature "User Sign Up", type: :feature do
         fill_in('Password confirmation', with: 'password', exact: true)
         click_button 'Sign up'
         
-        expect(page).to have_text "Welcome"
+        expect(page).to have_text "Coalesce to Give"
     end
     
 end

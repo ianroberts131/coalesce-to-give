@@ -8,21 +8,24 @@
 </head>
 <body>
   <div class='container'>
+    <ul class='nav nav-tabs'>
+      <li><%= link_to 'About', welcome_about_path, class: 'navbar-link' %></li>
+      <li><%= link_to 'Research', welcome_research_path, class: 'navbar-link' %></li>
+      <li><%= link_to 'Contact', welcome_contact_path, class: 'navbar-link' %></li>
   
-    <% if user_signed_in? %>
-      <div class='pull-right'>
-        <%= link_to 'Home', root_path, class: 'navbar-link' %> |
-        <%= link_to 'Edit profile', edit_user_registration_path, class: 'navbar-link' %> |
-        <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'navbar-link' %>
-      </div>
-      
-    <% else %>
-      <div class='pull-right'>
-        <%= link_to 'Sign Up', new_user_registration_path, class: 'navbar-link' %> |
-        <%= link_to 'Log In', new_user_session_path, class: 'navbar-link' %>
-      </div>
-    <% end %>
-
+      <ul class='nav nav-tabs navbar-right'>
+        <% if user_signed_in? %>
+        
+          <li>><%= link_to 'Home', root_path, class: 'navbar-link' %></li>
+          <li><%= link_to 'Edit profile', edit_user_registration_path, class: 'navbar-link' %></li>
+          <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'navbar-link' %></li>
+        
+        <% else %>
+          <li><%= link_to 'Sign Up', new_user_registration_path, class: 'navbar-link' %></li>
+          <li><%= link_to 'Log In', new_user_session_path, class: 'navbar-link' %></li>
+        <% end %>
+      </ul>
+    </ul>
 <%= yield %>
   </div>
 </body>
