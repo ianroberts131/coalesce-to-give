@@ -1,12 +1,13 @@
 require 'rails_helper'
 
-RSpec.feature "User Sign Up", type: :feature do
+RSpec.feature "Nonprofit Sign Up", type: :feature do
   scenario 'successfully' do
     
     visit '/users/sign_up'
-    expect(page).to have_css('h2', text: 'New User Sign Up')
+    expect(page).to have_css('h2', text: 'Nonprofit Sign Up')
     
-    within('.user_registration_form') do
+    within('.np_registration_form') do
+      fill_in 'Organization Name', with: "Ian's Nonprofit"
       fill_in 'First name', with: 'Ian'
       fill_in 'Last name', with: 'Roberts'
       fill_in 'Email', with: 'ianroberts131@gmail.com'
@@ -17,5 +18,4 @@ RSpec.feature "User Sign Up", type: :feature do
       
     expect(page).to have_text "You have signed up successfully"
   end
-    
 end
