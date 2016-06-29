@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   
   has_many :managers
-  has_many :nonprofits, through: :managers, foreign_key: :nonprofit_id
+  has_many :nonprofits, through: :managers
   accepts_nested_attributes_for :managers
 
 end

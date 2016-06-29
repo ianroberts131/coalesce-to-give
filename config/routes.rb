@@ -3,9 +3,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
   
   authenticated :user do
-    resources :users, only: [:show]
+    resources :users, only: [:show] do
+    end
     root to: 'users#show', as: :authenticated_root
   end
+  
+  resources :nonprofits, only: [:show]
   
   root 'welcome#home'
   get 'welcome/about'
