@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
   
   authenticated :user do
-    resources :users, only: [:show] do
-    end
+    resources :users, only: [:show]
     root to: 'users#show', as: :authenticated_root
   end
   
