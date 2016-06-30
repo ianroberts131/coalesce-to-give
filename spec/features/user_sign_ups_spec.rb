@@ -6,7 +6,7 @@ RSpec.feature "User Sign Up", type: :feature do
     visit '/users/sign_up'
     expect(page).to have_css('h2', text: 'New User Sign Up')
     
-    within('.user_registration_form') do
+    within('.user-registration-form') do
       fill_in 'First name', with: 'Ian'
       fill_in 'Last name', with: 'Roberts'
       fill_in 'Email', with: 'ianroberts131@gmail.com'

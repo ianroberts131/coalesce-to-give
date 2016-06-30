@@ -6,7 +6,7 @@ RSpec.feature "Nonprofit Sign Up", type: :feature do
     visit '/users/sign_up'
     expect(page).to have_css('h2', text: 'Nonprofit Sign Up')
     
-    within('.np_registration_form') do
+    within('.np-registration-form') do
       fill_in 'Organization Name', with: "Ian's Nonprofit"
       fill_in 'First name', with: 'Ian'
       fill_in 'Last name', with: 'Roberts'

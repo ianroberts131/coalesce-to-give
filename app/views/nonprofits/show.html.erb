@@ -1,2 +1,19 @@
-<h1><%= "#{@nonprofit.name}" %></h1>
+<h1><%= @nonprofit.name %>
+  <% unless @nonprofit.managers.where(user_id: current_user.id).empty? %>
+    <span class="header-button">
+      <%= link_to 'Edit Nonprofit', edit_nonprofit_path, class: 'btn btn-primary' %>
+    </span>
+  <% end %>
+</h1>
+
+<h3>Contact Information</h3>
+<% unless @nonprofit.website.blank? %>
+  <h4>Website: <%= @nonprofit.website %></h4>
+<% end %>
+<% unless @nonprofit.phone.blank? %>
+  <h4>Phone: <%= @nonprofit.phone %></h4>
+<% end %>
+<% unless @nonprofit.email.blank? %>
+  <h4>Email: <%= @nonprofit.email %></h4>
+<% end %>
 

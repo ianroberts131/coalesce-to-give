@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-6">    
+    <h2>Edit Nonprofit</h2>
+    
+    <%= form_for(@nonprofit, url: nonprofit_path, html: { method: :put } ) do |f| %>
+      <div class="form-group">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "Update nonprofit name" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :email %><br />
+        <%= f.text_field :email, class: "form-control", placeholder: "Update website" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :website %><br />
+        <%= f.text_field :website, class: "form-control", placeholder: "Update website" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :phone %><br />
+        <%= f.text_field :phone, class: "form-control", placeholder: "Update website" %>
+      </div>
+      
+      <div class="actions">
+        <%= f.submit "Update nonprofit profile", class: "btn btn-success" %>
+      </div>
+      
+    <% end %>
+  </div>
+</div>
+

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     root to: 'users#show', as: :authenticated_root
   end
   
-  resources :nonprofits, only: [:show]
+  resources :nonprofits, only: [:show, :edit, :update]
   
   root 'welcome#home'
   get 'welcome/about'

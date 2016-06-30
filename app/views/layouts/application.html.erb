@@ -20,7 +20,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Nonprofits <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <% current_user.nonprofits.each do |nonprofit| %>
-                <li><%= link_to "#{nonprofit.name}", nonprofit_path(nonprofit) %></li>
+                <li><%= link_to nonprofit.name, nonprofit_path(nonprofit) %></li>
               <% end %>
             </ul>
           </li>
