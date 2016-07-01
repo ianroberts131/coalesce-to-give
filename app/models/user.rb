@@ -8,4 +8,7 @@ class User < ActiveRecord::Base
   has_many :nonprofits, through: :managers
   accepts_nested_attributes_for :managers
 
+  def can_edit_nonprofit?(nonprofit)
+    nonprofit.managers.where(user_id: id).size == 1
+  end
 end

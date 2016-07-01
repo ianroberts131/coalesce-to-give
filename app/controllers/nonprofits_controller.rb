@@ -7,11 +7,11 @@ class NonprofitsController < ApplicationController
   end
   
   def edit
-    @nonprofit = Nonprofit.find(params[:id])
+    @nonprofit = current_user.nonprofits.find(params[:id])
   end
   
   def update
-    @nonprofit = Nonprofit.find(params[:id])
+    @nonprofit = current_user.nonprofits.find(params[:id])
     @nonprofit.assign_attributes(nonprofit_params)
     
     if @nonprofit.save

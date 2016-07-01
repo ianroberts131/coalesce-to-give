@@ -4,6 +4,12 @@ class RegistrationsController < Devise::RegistrationsController
     super { |user| user.managers.build.build_nonprofit }
   end
 
+  protected
+  
+    def update_resource(resource, params)
+      resource.update_without_password(params)
+    end
+
   private
     def sign_up_params
       params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, managers_attributes: [ [nonprofit_attributes: [:name] ]])
