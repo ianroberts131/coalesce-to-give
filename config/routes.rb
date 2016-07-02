@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'social_profiles/index'
-
-  get 'social_profiles/create'
-
   devise_for :users, controllers: { registrations: 'registrations' }
   
   authenticated :user do
