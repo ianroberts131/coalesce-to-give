@@ -1,9 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
 
   def new
-    super do |user| 
-      user.managers.build.build_nonprofit
-    end
+    super { |user| user.managers.build.build_nonprofit }
   end
 
   protected
