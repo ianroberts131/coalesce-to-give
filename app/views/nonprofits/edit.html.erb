@@ -23,8 +23,31 @@
         <%= f.phone_field :phone, class: "form-control", placeholder: "Update phone number" %>
       </div>
       
+      <% @nonprofit.social_profile ||= SocialProfile.new %>
+      <%=f.fields_for :social_profile do |social_profile_form| %>
+        <div class="form-group">
+          <%= social_profile_form.label :facebook, "Facebook Profile" %><br />
+          <%= social_profile_form.url_field :facebook, class: "form-control", placeholder: "Update Facebook URL" %>
+        </div>
+        
+        <div class="form-group">
+          <%= social_profile_form.label :twitter, "Twitter Profile" %><br />
+          <%= social_profile_form.url_field :twitter, class: "form-control", placeholder: "Update Twitter URL" %>
+        </div>
+        
+        <div class="form-group">
+          <%= social_profile_form.label :instagram, "Instagram Profile" %><br />
+          <%= social_profile_form.url_field :instagram, class: "form-control", placeholder: "Update Instagram URL" %>
+        </div>
+        
+        <div class="form-group">
+          <%= social_profile_form.label :linked_in, "LinkedIn Profile" %><br />
+          <%= social_profile_form.url_field :linked_in, class: "form-control", placeholder: "Update LinkedIn URL" %>
+        </div>
+      <% end %>
+      
       <div class="actions">
-        <%= f.submit "Update nonprofit profile", class: "btn btn-success" %>
+        <%= f.submit "Update Nonprofit Profile", class: "btn btn-success" %>
       </div>
       
     <% end %>

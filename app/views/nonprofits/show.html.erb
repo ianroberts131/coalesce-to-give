@@ -6,6 +6,24 @@
   <% end %>
 </h1>
 
+<% unless @nonprofit.social_profile.nil? %>
+  <% if @nonprofit.social_profile.facebook.present? %>
+    <%= link_to image_tag("icons/Facebook-48.png", size: "30x30"), @nonprofit.social_profile.facebook %>
+  <% end %>
+  
+  <% if @nonprofit.social_profile.twitter.present? %>
+    <%= link_to image_tag("icons/Twitter-48.png", size: "30x30"), @nonprofit.social_profile.twitter %>
+  <% end %>
+  
+  <% if @nonprofit.social_profile.instagram.present? %>
+    <%= link_to image_tag("icons/Instagram-48.png", size: "30x30"), @nonprofit.social_profile.instagram %>
+  <% end %>
+  
+  <% if @nonprofit.social_profile.linked_in.present? %>
+    <%= link_to image_tag("icons/LinkedIn-48.png", size: "30x30"), @nonprofit.social_profile.linked_in %>
+  <% end %>
+<% end %>
+
 <h3>Contact Information</h3>
 <% unless @nonprofit.website.blank? %>
   <h4>Website: <%= @nonprofit.website %></h4>
@@ -16,4 +34,6 @@
 <% unless @nonprofit.email.blank? %>
   <h4>Email: <%= @nonprofit.email %></h4>
 <% end %>
+
+
 

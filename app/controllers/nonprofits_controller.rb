@@ -25,7 +25,7 @@ class NonprofitsController < ApplicationController
   
   private
     def nonprofit_params
-      params.require(:nonprofit).permit(:name, :website, :email, :phone)
+      params.require(:nonprofit).permit(:name, :website, :email, :phone, social_profile_attributes: [:id, :facebook, :twitter, :instagram, :linked_in])
     end
     
     def authorize_manager

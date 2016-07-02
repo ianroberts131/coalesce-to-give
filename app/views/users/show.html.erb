@@ -1,1 +1,19 @@
 <h2><%= "#{@user.first_name} #{@user.last_name}" %></h2>
+
+<% unless @user.social_profile.nil? %>
+  <% if @user.social_profile.facebook.present? %>
+    <%= link_to image_tag("icons/Facebook-48.png", size: "30x30"), @user.social_profile.facebook %>
+  <% end %>
+  
+  <% if @user.social_profile.twitter.present? %>
+    <%= link_to image_tag("icons/Twitter-48.png", size: "30x30"), @user.social_profile.twitter %>
+  <% end %>
+  
+  <% if @user.social_profile.instagram.present? %>
+    <%= link_to image_tag("icons/Instagram-48.png", size: "30x30"), @user.social_profile.instagram %>
+  <% end %>
+  
+  <% if @user.social_profile.linked_in.present? %>
+    <%= link_to image_tag("icons/LinkedIn-48.png", size: "30x30"), @user.social_profile.linked_in %>
+  <% end %>
+<% end %>

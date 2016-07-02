@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160625183539) do
+ActiveRecord::Schema.define(version: 20160701034208) do
 
   create_table "managers", force: :cascade do |t|
     t.integer  "nonprofit_id"
@@ -31,6 +31,19 @@ ActiveRecord::Schema.define(version: 20160625183539) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "social_profiles", force: :cascade do |t|
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "instagram"
+    t.string   "linked_in"
+    t.integer  "sociable_id"
+    t.string   "sociable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "social_profiles", ["sociable_type", "sociable_id"], name: "index_social_profiles_on_sociable_type_and_sociable_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

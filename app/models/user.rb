@@ -6,9 +6,12 @@ class User < ActiveRecord::Base
   
   has_many :managers
   has_many :nonprofits, through: :managers
+  has_one :social_profile, as: :sociable
   accepts_nested_attributes_for :managers
+  accepts_nested_attributes_for :social_profile
 
   def can_edit_nonprofit?(nonprofit)
     nonprofit.managers.where(user_id: id).size == 1
   end
+  
 end
