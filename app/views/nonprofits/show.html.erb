@@ -22,7 +22,9 @@
   <% if @nonprofit.social_profile.linked_in.present? %>
     <%= link_to image_tag("icons/LinkedIn-48.png", size: "30x30"), @nonprofit.social_profile.linked_in %>
   <% end %>
-<% end %>
+<% end %> <br />
+
+<%= link_to "Pictures", nonprofit_pictures_path(@nonprofit) %>
 
 <h3>Contact Information</h3>
 <% unless @nonprofit.website.blank? %>

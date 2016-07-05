@@ -1,10 +1,12 @@
 <h1>Pictures</h1>
 
-<%= form_for @picture, url: { controller: "pictures", action: "create" } do |f| %>
-  <p>
-    <%= f.file_field :image %>
-  </p>
-  <p><%= f.submit %></p>
+<% if (@user == current_user) || (@nonprofit.users.include?(current_user)) %>
+  <%= form_for @picture, url: { controller: "pictures", action: "create" } do |f| %>
+    <p>
+      <%= f.file_field :image %>
+    </p>
+    <p><%= f.submit %></p>
+  <% end %>
 <% end %>
 
 <% @pictures.each do |picture| %>

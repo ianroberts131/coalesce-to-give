@@ -16,4 +16,6 @@
   <% if @user.social_profile.linked_in.present? %>
     <%= link_to image_tag("icons/LinkedIn-48.png", size: "30x30"), @user.social_profile.linked_in %>
   <% end %>
-<% end %>
+<% end %> <br />
+
+<%= link_to "Pictures", user_pictures_path(@user) %>
