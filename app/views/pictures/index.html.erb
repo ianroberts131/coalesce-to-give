@@ -1,6 +1,6 @@
 <h1>Pictures</h1>
 
-<% if (@user == current_user) || (@nonprofit.users.include?(current_user)) %>
+<% if (@user == current_user) || (@nonprofit.present? && @nonprofit.users.include?(current_user)) %>
   <%= form_for @picture, url: { controller: "pictures", action: "create" } do |f| %>
     <p>
       <%= f.file_field :image %>
@@ -10,5 +10,9 @@
 <% end %>
 
 <% @pictures.each do |picture| %>
-  <%= image_tag(picture.image_url.to_s) %>
+  <% if params[:user_id].present? %>
+    <%= link_to image_tag(picture.image_url(:thumb).to_s), user_picture_path(@user, picture) %>
+  <% else %>
+    <%= link_to image_tag(picture.image_url(:thumb).to_s), nonprofit_picture_path(@nonprofit, picture) %>
+  <% end %>
 <% end %>

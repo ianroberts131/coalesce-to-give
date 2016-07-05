@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    if current_user
+    if params[:id].nil?
       @user = current_user
     else
       @user = User.find(params[:id])

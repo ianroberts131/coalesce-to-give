@@ -1,0 +1,10 @@
+<div class="picture">
+  <%= image_tag(@picture.image_url.to_s) %>
+  <span class="delete-button">
+    <% if params[:user_id].present? %>
+      <%= link_to image_tag("icons/Delete-48.png", size: "30x30"), user_picture_path(@user, @picture), method: :delete %>
+    <% else %>
+      <%= link_to image_tag("icons/Delete-48.png", size: "30x30"), nonprofit_picture_path(@nonprofit, @picture), method: :delete %>
+    <% end %>
+  </span>  
+</div>

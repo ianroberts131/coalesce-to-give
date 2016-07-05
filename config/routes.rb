@@ -1,22 +1,16 @@
 Rails.application.routes.draw do
 
-  get 'pictures/index'
-
-  get 'pictures/new'
-
-  get 'pictures/create'
-
   devise_for :users, controllers: { registrations: 'registrations' }
   
   authenticated :user do
     resources :users, only: [:show] do
-      resources :pictures, only: [:index, :new, :create]
+      resources :pictures, only: [:index, :show, :new, :create, :destroy]
     end
     root to: 'users#show', as: :authenticated_root
   end
   
   resources :nonprofits, only: [:show, :edit, :update] do
-    resources :pictures, only: [:index, :new, :create]
+    resources :pictures, only: [:index, :show, :new, :create, :destroy]
   end
   
   root 'welcome#home'
