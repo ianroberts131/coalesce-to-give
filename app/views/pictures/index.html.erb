@@ -1,0 +1,12 @@
+<h1>Pictures</h1>
+
+<%= form_for @picture, url: { controller: "pictures", action: "create" } do |f| %>
+  <p>
+    <%= f.file_field :image %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
+
+<% @pictures.each do |picture| %>
+  <%= image_tag(picture.image_url.to_s) %>
+<% end %>

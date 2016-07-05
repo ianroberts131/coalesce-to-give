@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 gem 'devise'
 gem 'simple_form'
+gem 'rmagick'
+gem 'carrierwave'
 
 group :production do
   gem 'pg'
